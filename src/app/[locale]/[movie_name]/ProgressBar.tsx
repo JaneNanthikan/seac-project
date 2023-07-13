@@ -12,7 +12,7 @@ export default function ProgressBar({ progress }: { progress: PROGRESS_ENUM[]}) 
   return (
     <div className="flex my-7 rounded-xl border border-white overflow-hidden">
       {PROGRESS.map((item, index) => (
-        <div key={index} className={`relative self-center text-center w-1/3 py-4 h-[64px] sm:h-[56px] ${progress.includes(item) ? 'bg-white' : ''}`}>
+        <div key={index} className={`relative flex justify-center items-center text-center w-1/3 py-4 h-[64px] sm:h-[56px] ${progress.includes(item) ? 'bg-white' : ''}`}>
           <div className={`text-xs md:text-base font-bold ${progress.includes(item) ? 'text-black' : 'text-white'}`}>{item}</div>
           {index !== PROGRESS.length - 1 && (
             <div 

@@ -9,8 +9,8 @@ export default function DateSelector({ detail, booking, updateDate, updateTheate
   const t = useTranslations('SelectShow')
 
   return (
-    <div className="flex text-center">
-      <div className="w-1/3">
+    <div className="md:flex md:text-center space-y-4 md:space-y-0">
+      <div className="w-full md:w-1/3">
         <div className="font-bold">{t('select_date')}</div>
         <input
           type="date"
@@ -18,7 +18,7 @@ export default function DateSelector({ detail, booking, updateDate, updateTheate
           className="bg-transparent w-full rounded-xl border border-white text-center p-2"
           style={{ colorScheme: "dark" }} />
       </div>
-      <div className="w-1/3 mx-4 flex flex-col">
+      <div className="w-full md:w-1/3 md:mx-4 flex flex-col">
         <div className="font-bold">{t('select_theatre')}</div>
         <select
           disabled={date === ''}
@@ -30,7 +30,7 @@ export default function DateSelector({ detail, booking, updateDate, updateTheate
           ))}
         </select>
       </div>
-      <div className="w-1/3 flex flex-col">
+      <div className="w-full md:w-1/3 flex flex-col">
         <div className="font-bold">{t('select_time')}</div>
         <select
           disabled={theater === '-'}
