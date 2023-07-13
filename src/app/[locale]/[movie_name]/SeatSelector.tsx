@@ -1,19 +1,34 @@
 import React from "react"
+import { Booking } from "./SelectSession"
 
 const SEAT_COUNT = 10
 
-export default function SeatSelector() {
-
+export default function SeatSelector({booking, addSeats, removeSeats}: {booking: Booking, addSeats: ({seats}: {seats: string}) => void, removeSeats: ({seats}: {seats: string}) => void}) {
+  const {seats} = booking
   const Seats = ({character}: {character: string}) => {
-    const seats = []
+    const _seats = []
     for (let i = 0; i < SEAT_COUNT; i++) {
-      seats.push(<img key={i} className="w-1/10 h-10" src="green_chair.png" />)
+      const _img = seats.includes(character + i) ? "check.png" : "green_chair.png"
+
+      _seats.push(
+        <button 
+          key={i} 
+          onClick={() => {
+          if (seats.includes(character + i)) {
+            removeSeats({seats: character + i})
+          } else {
+            addSeats({seats: character + i})
+          }}}
+          >
+          <img className="w-1/10 h-10" src={_img} />
+        </button>
+      )
     }
 
     return (
       <div className="flex justify-around items-center">
         <div className="font-bold text-2xl">{character}</div>
-          {seats}
+          {_seats}
         <div className="font-bold text-2xl">{character}</div>
       </div>
     )
