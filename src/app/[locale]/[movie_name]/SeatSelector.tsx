@@ -3,23 +3,29 @@ import { Booking } from "./SelectSession"
 
 const SEAT_COUNT = 10
 
-export default function SeatSelector({booking, addSeats, removeSeats}: {booking: Booking, addSeats: ({seats}: {seats: string}) => void, removeSeats: ({seats}: {seats: string}) => void}) {
-  const {seats} = booking
-  const Seats = ({character}: {character: string}) => {
+export default function SeatSelector({ detail, booking, addSeats, removeSeats }: { detail: any, booking: Booking, addSeats: ({ seats }: { seats: string }) => void, removeSeats: ({ seats }: { seats: string }) => void }) {
+  const { reserved_seats } = detail
+  const { seats } = booking
+  const Seats = ({ character }: { character: string }) => {
     const _seats = []
-    for (let i = 0; i < SEAT_COUNT; i++) {
-      const _img = seats.includes(character + i) ? "/check.png" : "/green_chair.png"
+    for (let i = 1; i <= SEAT_COUNT; i++) {
+      const _img = reserved_seats.includes(character + i)
+        ? '/red_chair.png'
+        : seats.includes(character + i)
+          ? "/check.png"
+          : "/green_chair.png"
 
       _seats.push(
-        <button 
-          key={i} 
+        <button
+          key={i}
+          disabled={reserved_seats.includes(character + i)}
           onClick={() => {
-          if (seats.includes(character + i)) {
-            removeSeats({seats: character + i})
-          } else {
-            addSeats({seats: character + i})
-          }}}
-          >
+            if (seats.includes(character + i)) {
+              removeSeats({ seats: character + i })
+            } else {
+              addSeats({ seats: character + i })
+            }
+          }}>
           <img className="w-1/10 h-10" src={_img} />
         </button>
       )
@@ -28,12 +34,12 @@ export default function SeatSelector({booking, addSeats, removeSeats}: {booking:
     return (
       <div className="flex justify-around items-center">
         <div className="font-bold text-2xl">{character}</div>
-          {_seats}
+        {_seats}
         <div className="font-bold text-2xl">{character}</div>
       </div>
     )
   }
-  
+
   return (
     <div>
       <div className="w-full bg-warning font-bold py-3 text-center text-2xl my-7">SCREEN</div>

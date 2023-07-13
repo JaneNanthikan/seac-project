@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
-import ProgressBar, {PROGRESS_ENUM } from "./ProgressBar"
+import ProgressBar, { PROGRESS_ENUM } from "./ProgressBar"
 import DateSelector from "./DateSelector"
 import SeatSelector from "./SeatSelector"
 import SummarySession from "./SummarySession"
@@ -16,21 +16,21 @@ export interface Booking {
 function useBooking() {
   const [booking, setBooking] = useState<Booking>({
     date: '',
-    theater: '',
-    time: '',
+    theater: '-',
+    time: '-',
     seats: [],
   })
   const [progress, setProgress] = useState<PROGRESS_ENUM[]>([PROGRESS_ENUM.SELECT_DATE])
 
-  function updateDate({date}: {date: string}) {
-    setBooking({ ...booking, date})
+  function updateDate({ date }: { date: string }) {
+    setBooking({ ...booking, date })
   }
 
-  function updateTheater({theater}: {theater: string}) {
+  function updateTheater({ theater }: { theater: string }) {
     setBooking({ ...booking, theater })
   }
 
-  function updateTime({time}: {time: string}) {
+  function updateTime({ time }: { time: string }) {
     setBooking({ ...booking, time })
 
     const _progress = [...progress]
@@ -38,19 +38,21 @@ function useBooking() {
     setProgress(_progress)
   }
 
-  function addSeats({seats}: {seats: string}) {
-    let _seats :string[] = [...booking.seats]
+  function addSeats({ seats }: { seats: string }) {
+    let _seats: string[] = [...booking.seats]
     _seats.push(seats)
 
     setBooking({ ...booking, seats: _seats })
 
-    const _progress = [...progress]
-    _progress.push(PROGRESS_ENUM.BUY)
-    setProgress(_progress)
+    if (!progress.includes(PROGRESS_ENUM.BUY) && _seats.length > 0) {
+      const _progress = [...progress]
+      _progress.push(PROGRESS_ENUM.BUY)
+      setProgress(_progress)
+    }
   }
 
-  function removeSeats({seats}: {seats: string}) {
-    let _seats :string[] = [...booking.seats]
+  function removeSeats({ seats }: { seats: string }) {
+    let _seats: string[] = [...booking.seats]
     _seats = _seats.filter((seat) => seat !== seats)
 
     if (_seats.length === 0) {
@@ -73,7 +75,7 @@ function useBooking() {
   }
 }
 
-export default function SelectSession() {
+export default function SelectSession({ detail }: { detail: any }) {
   const {
     booking,
     progress,
@@ -87,9 +89,13 @@ export default function SelectSession() {
   return (
     <div>
       <ProgressBar progress={progress} />
-      <DateSelector booking={booking} updateDate={updateDate} updateTheater={updateTheater} updateTime={updateTime} />
-      <SeatSelector booking={booking} addSeats={addSeats} removeSeats={removeSeats} />
-      <SummarySession booking={booking} progress={progress} />
+      <DateSelector detail={detail} booking={booking} updateDate={updateDate} updateTheater={updateTheater} updateTime={updateTime} />
+      {progress.includes(PROGRESS_ENUM.SELECT_SEATS) && (
+        <>
+          <SeatSelector detail={detail} booking={booking} addSeats={addSeats} removeSeats={removeSeats} />
+          <SummarySession detail={detail} booking={booking} progress={progress} />
+        </>
+      )}
     </div>
   )
 }

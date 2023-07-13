@@ -2,8 +2,9 @@ import React from "react"
 import { Booking } from "./SelectSession"
 import { PROGRESS_ENUM } from "./ProgressBar"
 
-export default function SummarySession({booking, progress}: {booking: Booking, progress: PROGRESS_ENUM[]}) {
+export default function SummarySession({detail, booking, progress}: {detail: any, booking: Booking, progress: PROGRESS_ENUM[]}) {
   const {date, theater, time, seats} = booking
+  const {title, img} = detail
   const seatsString = seats.join(", ")
   const totalPrice = seats.length * 300
 
@@ -13,22 +14,21 @@ export default function SummarySession({booking, progress}: {booking: Booking, p
     <div>
       <h1 className="text-center text-2xl uppercase font-bold my-3">Summary</h1>
       <div className="rounded-xl border border-white p-4 flex">
-        <img src="doraemon.png" className="w-32" />
+        <img src={img} className="w-32" />
         <div className="flex justify-between w-full font-bold">
           <div className="w-5/6 p-6 space-y-5">
-            <h2 className="text-xl font-bold uppercase">Doraemon the movie 2021</h2>
+            <h2 className="text-xl font-bold uppercase">{title}</h2>
             <div className="flex space-x-10">
               <div>
-                <span>Showtime</span>
-                <span>Date:</span>
+                <span className="mr-2">Showtime Date:</span>
                 <span>{date}</span>
               </div>
               <div>
-                <span>Theatre : </span>
+                <span className="mr-2">Theatre:</span>
                 <span>{theater}</span>
               </div>
               <div>
-                <span>Time : </span>
+                <span className="mr-2">Time:</span>
                 <span>{time}</span>
               </div>
             </div>

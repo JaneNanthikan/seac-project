@@ -5,5 +5,13 @@
     },
     "CardMovie": {
       "more_info": "More Info"
+    },
+    "Button": {
+      "back": "Back"
+    },
+    "SelectShow": {
+      "select_date": "Select Date",
+      "select_theatre": "Select Theatre",
+      "select_time": "Select Time"
     }
 }

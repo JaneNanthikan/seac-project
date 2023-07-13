@@ -10,14 +10,13 @@ export const PROGRESS = [PROGRESS_ENUM.SELECT_DATE, PROGRESS_ENUM.SELECT_SEATS, 
 
 export default function ProgressBar({ progress }: { progress: PROGRESS_ENUM[]}) {
   return (
-    <div className="flex my-6 rounded-xl border border-white overflow-hidden">
+    <div className="flex my-7 rounded-xl border border-white overflow-hidden">
       {PROGRESS.map((item, index) => (
-        <div key={index} className={`relative text-center w-1/3 py-3 ${progress.includes(item) ? 'bg-white' : ''}`}>
-          <div className={`font-bold ${progress.includes(item) ? 'text-black' : 'text-white'}`}>{item}</div>
+        <div key={index} className={`relative self-center text-center w-1/3 py-4 h-[64px] sm:h-[56px] ${progress.includes(item) ? 'bg-white' : ''}`}>
+          <div className={`text-xs md:text-base font-bold ${progress.includes(item) ? 'text-black' : 'text-white'}`}>{item}</div>
           {index !== PROGRESS.length - 1 && (
             <div 
-              className={`absolute left-full top-0 w-0 h-0`} 
-              style={{borderTop: "24px solid transparent", borderBottom: "24px solid transparent", borderLeft: `${progress.includes(item) && '24px solid'}`}} />
+              className={`absolute left-full top-0 w-0 h-0 border-t-[32px] sm:border-t-[28px] border-b-[32px] sm:border-b-[28px] border-transparent ${progress.includes(item) && 'border-l-white border-l-[32px] sm:border-l-[28px]'}`} />
           )}
         </div>
       ))}

@@ -5,5 +5,13 @@
     },
     "CardMovie": {
       "more_info": "ข้อมูลเพิ่มเติม"
+    },
+    "Button": {
+      "back": "กลับ"
+    },
+    "SelectShow": {
+      "select_date": "เลือกวันที่",
+      "select_theatre": "เลือกโรงภาพยนตร์",
+      "select_time": "เลือกเวลา"
     }
 }
