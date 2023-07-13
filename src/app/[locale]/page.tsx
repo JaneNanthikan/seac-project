@@ -3,7 +3,7 @@ import CardMovie from "@/components/CardMovie"
 import Menu from "./Menu"
 
 const getData = async () => {
-  const resp = await fetch('http://localhost:3000/api/movies')
+  const resp = await fetch('http://localhost:3000/api/movies/list')
   if (!resp.ok) {
     return {}
   }
