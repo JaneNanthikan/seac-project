@@ -1,5 +1,9 @@
 {
-    "Index": {
-      "title": "Hello world!"
+    "Menu": {
+      "now_showing": "Now Showing",
+      "coming_soon": "Coming Soon"
+    },
+    "CardMovie": {
+      "more_info": "More Info"
     }
 }

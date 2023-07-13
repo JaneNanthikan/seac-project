@@ -8,7 +8,7 @@ export default function SeatSelector({booking, addSeats, removeSeats}: {booking:
   const Seats = ({character}: {character: string}) => {
     const _seats = []
     for (let i = 0; i < SEAT_COUNT; i++) {
-      const _img = seats.includes(character + i) ? "check.png" : "green_chair.png"
+      const _img = seats.includes(character + i) ? "/check.png" : "/green_chair.png"
 
       _seats.push(
         <button 

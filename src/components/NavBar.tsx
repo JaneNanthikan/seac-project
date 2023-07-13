@@ -8,11 +8,11 @@ export default function NavBar() {
 					MY CinePlex
 				</div>
 				<select className="bg-transparent">
-					<option value="en">
-						EN
-					</option>
 					<option value="th">
 						TH
+					</option>
+					<option value="en">
+						EN
 					</option>
 				</select>
 			</div>

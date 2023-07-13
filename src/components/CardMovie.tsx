@@ -1,29 +1,30 @@
 import React from "react"
-import Tag from "./Tag"
 import Link from "next/link"
+import Tag from "./Tag"
+import CardMovieButton from "./CardMovieButton"
 
-type Prop = {
+type CardMovieProps = {
   photo: string,
   date: string,
-  title: string
+  title: string,
+  tags: string[]
 }
 
-export default function CardMovie({photo, date, title}: Prop) {
+export default function CardMovie({photo, date, title, tags}: CardMovieProps) {
   return (
     <div className="space-y-2 font-bold">
       <Link href="/doraemon" className="relative">
-        <div className="absolute flex justify-center items-center bg-black/50 rounded-xl w-full h-full opacity-0 hover:opacity-100">
-          <div className="w-2/3 py-1 bg-white text-black text-center rounded-full">
-            MORE INFO
-          </div>
+        <div className="absolute flex justify-center items-center bg-black/50 rounded-2xl w-full h-full opacity-0 hover:opacity-100">
+          <CardMovieButton />
         </div>
         <img src={photo} alt={photo} />
       </Link>
       <p className="text-secondary text-xs uppercase">{date}</p>
       <p className="text-white uppercase">{title}</p>
       <div className="flex flex-wrap">
-        <Tag title="Animation" />
-        <Tag title="108 Mins" />
+        {tags.map(title => (
+          <Tag key={title} title={title} />
+        ))}
       </div>
     </div>
   )

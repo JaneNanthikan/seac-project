@@ -1,5 +1,9 @@
 {
-    "Index": {
-      "title": "สวัสดีค่า!"
+    "Menu": {
+      "now_showing": "กำลังฉาย",
+      "coming_soon": "เร็วๆนี้"
+    },
+    "CardMovie": {
+      "more_info": "ข้อมูลเพิ่มเติม"
     }
 }

@@ -13,9 +13,6 @@ module.exports = {
         btn_bg: 'var(--btn-bg-color)',
         btn_text: 'var(--btn-color)' 
       },
-      maxWidth: {
-        content: 1280,
-      }
     },
   },
   plugins: [],

@@ -6,7 +6,7 @@ import SelectSession from "./SelectSession"
 const details = {
   date: "05 oct 2022",
   title: "DORAEMON THE MOVIE 2022",
-  img: "doraemon.png",
+  img: "/doraemon.png",
   description: `One day, Nobita picks a small rocket from which a small-sized humanoid alien Papi comes out. He came from the planet named 'Pirika'
   to the Earth to escape from the PCIA army of his planet. At the very beginning, Doraemon and his friends were confused by the small
   size of Papi, but with the gadget "Small Light", they became small and play together. However, the whale-shaped battleship, who

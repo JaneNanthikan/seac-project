@@ -36,11 +36,9 @@ export default async function RootLayout({
       <body className={inter.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <NavBar />
-          <div className="flex justify-center">
-            <div className="max-w-content w-full min-h-full bg-white/10">
+          <div className="container mx-auto min-h-screen bg-white/10 px-6 py-4">
                 {children}
             </div>
-          </div>
         </NextIntlClientProvider>
       </body>
     </html>
