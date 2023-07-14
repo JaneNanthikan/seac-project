@@ -13,5 +13,13 @@
       "select_date": "เลือกวันที่",
       "select_theatre": "เลือกโรงภาพยนตร์",
       "select_time": "เลือกเวลา"
+    },
+    "Summary": {
+      "showtime_date": "วันที่",
+      "theatre": "โรงภาพยนตร์",
+      "time": "เวลา",
+      "seats": "ที่นั่ง",
+      "total_price": "ราคารวม",
+      "buy_now": "ซื้อตอนนี้"
     }
 }

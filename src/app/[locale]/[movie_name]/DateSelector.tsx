@@ -26,7 +26,7 @@ export default function DateSelector({ detail, booking, updateDate, updateTheate
           className="flex-grow min-h-0 bg-transparent w-full rounded-xl border border-white text-center p-2 disabled:opacity-50">
           <option>-</option>
           {theatreMovie.map((item: string) => (
-            <option key={item}>{item}</option>
+            <option key={item} value={item}>{item}</option>
           ))}
         </select>
       </div>
@@ -38,7 +38,7 @@ export default function DateSelector({ detail, booking, updateDate, updateTheate
           className="flex-grow min-h-0 bg-transparent w-full rounded-xl border border-white text-center p-2 disabled:opacity-50">
           <option>-</option>
           {timeMovie.map((item: string) => (
-            <option key={item}>{item}</option>
+            <option key={item} value={item}>{item}</option>
           ))}
         </select>
       </div>

@@ -35,7 +35,7 @@ export default async function RootLayout({
     <html lang={locale}>
       <body className={inter.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <NavBar />
+          <NavBar locale={locale} />
           <div className="container mx-auto min-h-screen bg-white/10 px-6 py-4">
                 {children}
             </div>

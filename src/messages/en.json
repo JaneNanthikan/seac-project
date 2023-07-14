@@ -13,5 +13,13 @@
       "select_date": "Select Date",
       "select_theatre": "Select Theatre",
       "select_time": "Select Time"
+    },
+    "Summary": {
+      "showtime_date": "Showtime Date",
+      "theatre": "Theatre",
+      "time": "Time",
+      "seats": "Seats",
+      "total_price": "Total Price",
+      "buy_now": "Buy Now"
     }
 }
